@@ -35,8 +35,11 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261118.1",
     "@types/react": "~19.2.2",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.0",
+    "wrangler": "^4.164.0"
   },
   "scripts": {
     "start": "expo start",
@@ -44,7 +47,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "verify": "node scripts/agent/verify.mjs",
+    "worker:dev": "wrangler dev -c worker/wrangler.toml",
+    "build:web": "expo export --platform web"
   },
   "private": true
 }

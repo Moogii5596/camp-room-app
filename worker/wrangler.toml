@@ -1,0 +1,16 @@
+name = "camp-room-app"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "../dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "camp-room-app"
+# local dev-д ямар ч id болно; remote үүсгэхдээ (хэрэглэгчийн зөвшөөрөлтэй) бодит id-аар солино
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"

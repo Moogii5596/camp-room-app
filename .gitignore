@@ -66,3 +66,6 @@ yarn-error.log*
 
 # Mac OS
 .DS_Store
+
+# Cloudflare
+.wrangler/

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "enabledPlugins": {
+    "expo@claude-plugins-official": true
+  },
+  "permissions": {
+    "deny": [
+      "Read(./.env*)",
+      "Read(./.dev.vars*)",
+      "Read(./worker/.dev.vars*)",
+      "Read(./node_modules/**)",
+      "Read(./package-lock.json)",
+      "Bash(git push origin main*)",
+      "Bash(git push -f*)",
+      "Bash(git push --force*)"
+    ],
+    "ask": [
+      "Bash(git push*)",
+      "Bash(git merge*)",
+      "Bash(git tag*)",
+      "Bash(npx wrangler deploy*)",
+      "Bash(wrangler deploy*)",
+      "Bash(npx wrangler d1 * --remote*)",
+      "Bash(wrangler d1 * --remote*)",
+      "Bash(npx wrangler secret*)",
+      "Bash(wrangler secret*)",
+      "Bash(npx wrangler d1 time-travel*)",
+      "Bash(wrangler d1 time-travel*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/scripts/agent/verify.mjs\" --hook", "timeout": 300 }
+        ]
+      }
+    ]
+  }
+}
